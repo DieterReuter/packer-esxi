@@ -53,7 +53,7 @@
       "ssh_password": "vagrant",
       "ssh_port": 22,
       "ssh_username": "root",
-      "ssh_wait_timeout": "40m",
+      "ssh_wait_timeout": "20m",
       "vm_name": "esxi55",
       "vboxmanage": [
         [
