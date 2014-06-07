@@ -48,11 +48,12 @@
       "iso_urls": [
         "./VMware-VMvisor-Installer-5.5.0.update01-1623387.x86_64.iso"
       ],
+      "guest_additions_mode": "disable",
       "shutdown_command": "/bin/halt",
       "ssh_password": "vagrant",
       "ssh_port": 22,
       "ssh_username": "root",
-      "ssh_wait_timeout": "20m",
+      "ssh_wait_timeout": "40m",
       "vm_name": "esxi55",
       "vboxmanage": [
         [
