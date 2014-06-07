@@ -1,6 +1,7 @@
 {
   "builders": [
     {
+      "type": "vmware-iso",
       "boot_command": [
         "O<wait>",
         " ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
@@ -21,7 +22,6 @@
       "ssh_port": 22,
       "ssh_username": "root",
       "ssh_wait_timeout": "20m",
-      "type": "vmware-iso",
       "vm_name": "esxi55",
       "vmdk_name": "esxi55",
       "vmx_data": {
@@ -31,6 +31,43 @@
         "numvcpus": "2",
         "vhv.enable": "TRUE"
       }
+    },
+    {
+      "type": "virtualbox-iso",
+      "boot_command": [
+        "O<wait>",
+        " ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+      ],
+      "boot_wait": "15s",
+      "disk_size": 20140,
+      "guest_os_type": "Linux_64",
+      "headless": false,
+      "http_directory": "http",
+      "iso_checksum": "36dfcb269a20d7bfe7323f825128e1a8",
+      "iso_checksum_type": "md5",
+      "iso_urls": [
+        "./VMware-VMvisor-Installer-5.5.0.update01-1623387.x86_64.iso"
+      ],
+      "shutdown_command": "/bin/halt",
+      "ssh_password": "vagrant",
+      "ssh_port": 22,
+      "ssh_username": "root",
+      "ssh_wait_timeout": "20m",
+      "vm_name": "esxi55",
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "4096"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "2"
+        ]
+      ]
     }
   ],
   "post-processors": [
